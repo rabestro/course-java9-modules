@@ -63,6 +63,10 @@
 		<maven>3.6.0</maven>
 	</prerequisites>
 
+	<modules>
+		<module>jmp-bank-api</module>
+	</modules>
+
 	<scm>
 		<connection>scm:git:https://github.com/rabestro/course-java9-modules.git</connection>
 		<developerConnection>scm:git:https://github.com/rabestro/course-java9-modules.git</developerConnection>
