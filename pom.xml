@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.epam.engx</groupId>
+    <artifactId>jmp</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>
+        JMP (Java Advanced: Backend Core)
+    </name>
+    <description>
+        The first practical assignment for the course 'Java Advanced: Backend Core'
+    </description>
+    <url>
+        https://github.com/rabestro/course-java9-modules
+    </url>
+    <inceptionYear>
+        2023
+    </inceptionYear>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+
+    <organization>
+        <name>EPAM Systems</name>
+        <url>https://www.epam.com</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <id>rabestro</id>
+            <name>Jegors Čemisovs</name>
+            <email>jegors.cemisovs@gmail.com</email>
+            <url>https://www.linkedin.com/in/jegors-cemisovs/</url>
+            <timezone>Europe/Riga</timezone>
+            <roles>
+                <role>developer</role>
+                <role>mentee</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <contributors>
+        <contributor>
+            <name>Alexander Potapovich</name>
+            <organization>EPAM Systems</organization>
+            <organizationUrl>https://www.epam.com</organizationUrl>
+            <roles>
+                <role>mentor</role>
+            </roles>
+            <timezone>Europe/Vilnius</timezone>
+        </contributor>
+    </contributors>
+
+    <prerequisites>
+        <maven>3.6.0</maven>
+    </prerequisites>
+
+    <scm>
+        <connection>scm:git:https://github.com/rabestro/course-java9-modules.git</connection>
+        <developerConnection>scm:git:https://github.com/rabestro/course-java9-modules.git</developerConnection>
+        <url>https://github.com/rabestro/course-java9-modules</url>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/rabestro/course-java9-modules/issues</url>
+    </issueManagement>
+
+    <distributionManagement>
+        <site>
+            <id>github</id>
+            <url>scm:git:git@github.com:rabestro/course-java9-modules.git</url>
+        </site>
+    </distributionManagement>
+
+    <properties>
+        <sonar.organization>rabestro</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.sonarsource.scanner.maven</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>3.9.1.2184</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
