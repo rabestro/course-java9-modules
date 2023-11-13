@@ -67,6 +67,7 @@
 		<module>jmp-bank-api</module>
 		<module>jmp-service-api</module>
 		<module>jmp-cloud-bank-impl</module>
+		<module>jmp-cloud-service-impl</module>
 	</modules>
 
 	<scm>
