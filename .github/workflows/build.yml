@@ -22,7 +22,7 @@ jobs:
         uses: mavrosxristoforos/get-xml-info@1.1.1
         with:
           xml-file: pom.xml
-          xpath: ${{ env.XPATH }} // path of the <java.version> property
+          xpath: ${{ env.XPATH }}
       - name: Set up JDK ${{ steps.java-version.outputs.result }}
         uses: actions/setup-java@v3
         with:
