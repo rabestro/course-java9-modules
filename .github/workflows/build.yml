@@ -23,7 +23,7 @@ jobs:
         with:
           xml-file: pom.xml
           xpath: ${{ env.XPATH }}
-      - name: Set up JDK ${{ steps.java-version.outputs.result }}
+      - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           java-version: ${{ steps.java-version.outputs.info }}
