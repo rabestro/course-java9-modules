@@ -5,6 +5,10 @@ on:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
+
+env:
+  XPATH: //*[local-name()='project']/*[local-name()='properties']/*[local-name()='java.version']
+
 jobs:
   build:
     name: Build and analyze

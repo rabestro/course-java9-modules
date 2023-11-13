@@ -79,6 +79,16 @@
 			<id>github</id>
 			<url>scm:git:git@github.com:rabestro/course-java9-modules.git</url>
 		</site>
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/rabestro/course-java9-modules</url>
+		</repository>
+		<snapshotRepository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/rabestro/course-java9-modules</url>
+		</snapshotRepository>
 	</distributionManagement>
 
 	<properties>
