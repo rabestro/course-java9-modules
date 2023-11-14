@@ -8,6 +8,8 @@ public class Subscription {
 	private final LocalDate startDate;
 
 	public Subscription(String bankcard, LocalDate startDate) {
+		Objects.requireNonNull(bankcard, "Bankcard cannot be null");
+		Objects.requireNonNull(startDate, "Start date cannot be null");
 		this.bankcard = bankcard;
 		this.startDate = startDate;
 	}

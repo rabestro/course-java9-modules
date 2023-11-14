@@ -118,6 +118,18 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-core</artifactId>
+				<version>5.4.0</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.assertj</groupId>
+				<artifactId>assertj-core</artifactId>
+				<version>3.21.0</version>
+				<scope>test</scope>
+			</dependency>
 
 			<!-- Spock Framework (Bill of Materials) -->
 			<!-- https://mvnrepository.com/artifact/org.spockframework/spock-bom -->
@@ -134,6 +146,7 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+				<!-- Maven Compiler Plugin -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
@@ -143,11 +156,35 @@
 						<target>${java.version}</target>
 					</configuration>
 				</plugin>
+
+				<!-- JUnit 5 (Surefire Provider) -->
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.2.2</version>
+					<configuration>
+						<useFile>false</useFile>
+						<includes>
+							<include>**/*Test</include>
+							<include>**/*Spec</include>
+						</includes>
+						<statelessTestsetReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
+							<disable>false</disable>
+							<version>3.0</version>
+							<usePhrasedFileName>false</usePhrasedFileName>
+							<usePhrasedTestSuiteClassName>true</usePhrasedTestSuiteClassName>
+							<usePhrasedTestCaseClassName>true</usePhrasedTestCaseClassName>
+							<usePhrasedTestCaseMethodName>true</usePhrasedTestCaseMethodName>
+						</statelessTestsetReporter>
+					</configuration>
+				</plugin>
+
+				<!-- SonarQube (Scanner for Maven) -->
 				<plugin>
 					<groupId>org.sonarsource.scanner.maven</groupId>
 					<artifactId>sonar-maven-plugin</artifactId>
 					<version>3.9.1.2184</version>
 				</plugin>
+
 				<!-- Spotless is a general-purpose formatting plugin -->
 				<plugin>
 					<groupId>com.diffplug.spotless</groupId>
@@ -162,6 +199,7 @@
 						</java>
 					</configuration>
 				</plugin>
+
 				<!-- The gmavenplus plugin is used to compile Groovy code -->
 				<plugin>
 					<groupId>org.codehaus.gmavenplus</groupId>
@@ -182,6 +220,9 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<groupId>com.diffplug.spotless</groupId>

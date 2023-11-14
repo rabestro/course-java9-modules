@@ -11,4 +11,11 @@
 
 	<artifactId>jmp-cloud-bank-impl</artifactId>
 
+	<dependencies>
+		<dependency>
+			<groupId>org.spockframework</groupId>
+			<artifactId>spock-core</artifactId>
+		</dependency>
+	</dependencies>
+
 </project>
