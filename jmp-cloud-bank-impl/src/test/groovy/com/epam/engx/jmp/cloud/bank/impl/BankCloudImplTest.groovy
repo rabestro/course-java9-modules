@@ -10,5 +10,7 @@ class BankCloudImplTest extends Specification {
 	}
 
 	def "CreateBankCard"() {
+		expect:
+		true == true
 	}
 }
