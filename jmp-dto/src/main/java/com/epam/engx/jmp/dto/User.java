@@ -1,4 +1,4 @@
-package org.epam.engx.jmp.dto;
+package com.epam.engx.jmp.dto;
 
 import java.time.LocalDate;
 import java.util.Objects;
