@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.epam.engx</groupId>
+	<artifactId>jmp</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0-SNAPSHOT</version>
+
+	<name>
+		JMP (Java Advanced: Backend Core)
+	</name>
+	<description>
+		The first practical assignment for the course 'Java Advanced: Backend Core'
+	</description>
+	<url>
+		https://github.com/rabestro/jmp-backend-core
+	</url>
+	<inceptionYear>
+		2023
+	</inceptionYear>
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>https://opensource.org/licenses/MIT</url>
+		</license>
+	</licenses>
+
+	<organization>
+		<name>EPAM Systems</name>
+		<url>https://www.epam.com</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<id>rabestro</id>
+			<name>Jegors Čemisovs</name>
+			<email>jegors.cemisovs@gmail.com</email>
+			<url>https://www.linkedin.com/in/jegors-cemisovs/</url>
+			<timezone>Europe/Riga</timezone>
+			<roles>
+				<role>developer</role>
+				<role>mentee</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<contributors>
+		<contributor>
+			<name>Alexander Potapovich</name>
+			<organization>EPAM Systems</organization>
+			<organizationUrl>https://www.epam.com</organizationUrl>
+			<roles>
+				<role>mentor</role>
+			</roles>
+			<timezone>Europe/Vilnius</timezone>
+		</contributor>
+	</contributors>
+
+	<prerequisites>
+		<maven>3.6.0</maven>
+	</prerequisites>
+
+	<modules>
+		<module>jmp-bank-api</module>
+		<module>jmp-service-api</module>
+		<module>jmp-cloud-bank-impl</module>
+		<module>jmp-cloud-service-impl</module>
+		<module>jmp-dto</module>
+	</modules>
+
+	<scm>
+		<connection>scm:git:https://github.com/rabestro/jmp-backend-core.git</connection>
+		<developerConnection>scm:git:https://github.com/rabestro/jmp-backend-core.git</developerConnection>
+		<url>https://github.com/rabestro/jmp-backend-core</url>
+	</scm>
+
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/rabestro/jmp-backend-core/issues</url>
+	</issueManagement>
+
+	<distributionManagement>
+		<site>
+			<id>github</id>
+			<url>scm:git:git@github.com:rabestro/jmp-backend-core.git</url>
+		</site>
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/rabestro/jmp-backend-core</url>
+		</repository>
+		<snapshotRepository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/rabestro/jmp-backend-core</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<properties>
+		<sonar.organization>rabestro</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<java.version>21</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- JUnit 5 (Bill of Materials)-->
+			<!-- https://mvnrepository.com/artifact/org.junit/junit-bom -->
+			<dependency>
+				<groupId>org.junit</groupId>
+				<artifactId>junit-bom</artifactId>
+				<version>5.10.1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- Spock Framework (Bill of Materials) -->
+			<!-- https://mvnrepository.com/artifact/org.spockframework/spock-bom -->
+			<dependency>
+				<groupId>org.spockframework</groupId>
+				<artifactId>spock-bom</artifactId>
+				<version>2.3-groovy-4.0</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.11.0</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.sonarsource.scanner.maven</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>3.9.1.2184</version>
+				</plugin>
+				<!-- Spotless is a general-purpose formatting plugin -->
+				<plugin>
+					<groupId>com.diffplug.spotless</groupId>
+					<artifactId>spotless-maven-plugin</artifactId>
+					<version>2.35.0</version>
+					<configuration>
+						<java>
+							<palantirJavaFormat>
+								<version>2.10.0</version>
+								<style>PALANTIR</style>
+							</palantirJavaFormat>
+						</java>
+					</configuration>
+				</plugin>
+				<!-- The gmavenplus plugin is used to compile Groovy code -->
+				<plugin>
+					<groupId>org.codehaus.gmavenplus</groupId>
+					<artifactId>gmavenplus-plugin</artifactId>
+					<version>3.0.2</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>compile</goal>
+								<goal>compileTests</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.diffplug.spotless</groupId>
+				<artifactId>spotless-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.gmavenplus</groupId>
+				<artifactId>gmavenplus-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
