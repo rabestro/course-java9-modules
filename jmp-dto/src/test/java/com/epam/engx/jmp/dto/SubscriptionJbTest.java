@@ -37,8 +37,8 @@ class SubscriptionJbTest {
     }
 
     @DisplayName("Negative Test: Null Bankcard")
-    @ParameterizedTest(name = "[{index}] {0}")
-	@ParameterizedTest(name = "[{index}] {arguments}")
+	@ParameterizedTest(name = "[{index}] {0}")
+	@NullSource
     void invalidBankcardTest(String bankcard) {
         assertThatThrownBy(() -> new Subscription(bankcard, LocalDate.now()))
             .isInstanceOf(NullPointerException.class)
