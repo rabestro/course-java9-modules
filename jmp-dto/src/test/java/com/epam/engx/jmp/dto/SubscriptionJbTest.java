@@ -22,8 +22,8 @@ class SubscriptionJbTest {
         assertThat(subscription)
             .withFailMessage("Expected a valid subscription object, but was invalid.")
             .satisfies(sub -> {
-                assertThat(sub.getBankcard()).isEqualTo(bankcard);
-                assertThat(sub.getStartDate()).isEqualTo(startDate);
+                assertThat(sub.bankcard()).isEqualTo(bankcard);
+                assertThat(sub.startDate()).isEqualTo(startDate);
             });
     }
 
