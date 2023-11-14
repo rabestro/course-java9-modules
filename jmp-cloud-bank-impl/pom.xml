@@ -10,12 +10,23 @@
 	</parent>
 
 	<artifactId>jmp-cloud-bank-impl</artifactId>
+	<packaging>jar</packaging>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.spockframework</groupId>
 			<artifactId>spock-core</artifactId>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.epam.engx</groupId>
+            <artifactId>jmp-bank-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+		<dependency>
+			<groupId>org.apache.groovy</groupId>
+			<artifactId>groovy</artifactId>
+		</dependency>
+    </dependencies>
 
 </project>

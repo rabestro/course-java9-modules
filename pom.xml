@@ -109,8 +109,8 @@
 
 	<dependencyManagement>
 		<dependencies>
+
 			<!-- JUnit 5 (Bill of Materials)-->
-			<!-- https://mvnrepository.com/artifact/org.junit/junit-bom -->
 			<dependency>
 				<groupId>org.junit</groupId>
 				<artifactId>junit-bom</artifactId>
@@ -132,7 +132,6 @@
 			</dependency>
 
 			<!-- Spock Framework (Bill of Materials) -->
-			<!-- https://mvnrepository.com/artifact/org.spockframework/spock-bom -->
 			<dependency>
 				<groupId>org.spockframework</groupId>
 				<artifactId>spock-bom</artifactId>
@@ -140,6 +139,14 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<!-- Groovy: A powerful multi-faceted language for the JVM  -->
+			<dependency>
+				<groupId>org.apache.groovy</groupId>
+				<artifactId>groovy</artifactId>
+				<version>4.0.15</version>
+				<scope>test</scope>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 

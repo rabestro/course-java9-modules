@@ -13,11 +13,11 @@ public sealed class BankCard permits CreditBankCard, DebitBankCard {
 		this.user = user;
 	}
 
-	public String getNumber() {
+	public String number() {
 		return number;
 	}
 
-	public User getUser() {
+	public User user() {
 		return user;
 	}
 
