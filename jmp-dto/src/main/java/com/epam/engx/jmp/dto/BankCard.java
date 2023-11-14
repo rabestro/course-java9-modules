@@ -7,6 +7,8 @@ public sealed class BankCard permits CreditBankCard, DebitBankCard {
 	private final User user;
 
 	public BankCard(String number, User user) {
+		Objects.requireNonNull(number, "Number cannot be null");
+		Objects.requireNonNull(user, "User cannot be null");
 		this.number = number;
 		this.user = user;
 	}
