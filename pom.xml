@@ -16,7 +16,7 @@
 		The first practical assignment for the course 'Java Advanced: Backend Core'
 	</description>
 	<url>
-		https://github.com/rabestro/course-java9-modules
+		https://github.com/rabestro/jmp-backend-core
 	</url>
 	<inceptionYear>
 		2023
@@ -72,30 +72,30 @@
 	</modules>
 
 	<scm>
-		<connection>scm:git:https://github.com/rabestro/course-java9-modules.git</connection>
-		<developerConnection>scm:git:https://github.com/rabestro/course-java9-modules.git</developerConnection>
-		<url>https://github.com/rabestro/course-java9-modules</url>
+		<connection>scm:git:https://github.com/rabestro/jmp-backend-core.git</connection>
+		<developerConnection>scm:git:https://github.com/rabestro/jmp-backend-core.git</developerConnection>
+		<url>https://github.com/rabestro/jmp-backend-core</url>
 	</scm>
 
 	<issueManagement>
 		<system>GitHub Issues</system>
-		<url>https://github.com/rabestro/course-java9-modules/issues</url>
+		<url>https://github.com/rabestro/jmp-backend-core/issues</url>
 	</issueManagement>
 
 	<distributionManagement>
 		<site>
 			<id>github</id>
-			<url>scm:git:git@github.com:rabestro/course-java9-modules.git</url>
+			<url>scm:git:git@github.com:rabestro/jmp-backend-core.git</url>
 		</site>
 		<repository>
 			<id>github</id>
 			<name>GitHub Packages</name>
-			<url>https://maven.pkg.github.com/rabestro/course-java9-modules</url>
+			<url>https://maven.pkg.github.com/rabestro/jmp-backend-core</url>
 		</repository>
 		<snapshotRepository>
 			<id>github</id>
 			<name>GitHub Packages</name>
-			<url>https://maven.pkg.github.com/rabestro/course-java9-modules</url>
+			<url>https://maven.pkg.github.com/rabestro/jmp-backend-core</url>
 		</snapshotRepository>
 	</distributionManagement>
 
@@ -107,14 +107,48 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
+	<dependencyManagement>
+		<dependencies>
+			<!-- JUnit 5 (Bill of Materials)-->
+			<!-- https://mvnrepository.com/artifact/org.junit/junit-bom -->
+			<dependency>
+				<groupId>org.junit</groupId>
+				<artifactId>junit-bom</artifactId>
+				<version>5.10.1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- Spock Framework (Bill of Materials) -->
+			<!-- https://mvnrepository.com/artifact/org.spockframework/spock-bom -->
+			<dependency>
+				<groupId>org.spockframework</groupId>
+				<artifactId>spock-bom</artifactId>
+				<version>2.3-groovy-4.0</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<build>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.11.0</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
 				<plugin>
 					<groupId>org.sonarsource.scanner.maven</groupId>
 					<artifactId>sonar-maven-plugin</artifactId>
 					<version>3.9.1.2184</version>
 				</plugin>
+				<!-- Spotless is a general-purpose formatting plugin -->
 				<plugin>
 					<groupId>com.diffplug.spotless</groupId>
 					<artifactId>spotless-maven-plugin</artifactId>
@@ -128,14 +162,19 @@
 						</java>
 					</configuration>
 				</plugin>
+				<!-- The gmavenplus plugin is used to compile Groovy code -->
 				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.11.0</version>
-					<configuration>
-						<source>${java.version}</source>
-						<target>${java.version}</target>
-					</configuration>
+					<groupId>org.codehaus.gmavenplus</groupId>
+					<artifactId>gmavenplus-plugin</artifactId>
+					<version>3.0.2</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>compile</goal>
+								<goal>compileTests</goal>
+							</goals>
+						</execution>
+					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -147,6 +186,10 @@
 			<plugin>
 				<groupId>com.diffplug.spotless</groupId>
 				<artifactId>spotless-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.gmavenplus</groupId>
+				<artifactId>gmavenplus-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
