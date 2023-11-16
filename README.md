@@ -1,4 +1,4 @@
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rabestro_course-java9-modules&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=rabestro_course-java9-modules)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=org.epam.engx:jmp&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=org.epam.engx:jmp)
 
 # Java Mentoring Program
 
