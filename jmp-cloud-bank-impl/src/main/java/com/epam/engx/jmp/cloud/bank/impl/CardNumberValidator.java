@@ -17,8 +17,8 @@ public final class CardNumberValidator implements Predicate<String> {
 		if (cardNumber == null) {
 			return false;
 		}
-		var number = cardNumber.replaceAll(" ", "");
-		if (!number.matches("\\d{2,}")) {
+		var number = cardNumber.replace(" ", "");
+		if (!number.matches("\\d{2,19}")) {
 			return false;
 		}
 
