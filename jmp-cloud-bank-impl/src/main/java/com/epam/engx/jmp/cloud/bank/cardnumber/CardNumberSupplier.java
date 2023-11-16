@@ -1,9 +1,10 @@
-package com.epam.engx.jmp.cloud.bank.impl;
+package com.epam.engx.jmp.cloud.bank.cardnumber;
 
 import java.security.SecureRandom;
 import java.util.Random;
+import java.util.function.Supplier;
 
-public final class LuhnCardNumberSupplier implements CardNumberSupplier {
+public final class CardNumberSupplier implements Supplier<String> {
 	private static final int CARD_NUMBER_LENGTH = 16;
 	private static final Random RANDOM = new SecureRandom();
 
@@ -36,6 +37,6 @@ public final class LuhnCardNumberSupplier implements CardNumberSupplier {
 			alternate = !alternate;
 		}
 
-        return 10 - (sum % 10);
+		return 10 - (sum % 10);
 	}
 }
