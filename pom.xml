@@ -75,6 +75,7 @@
 		<connection>scm:git:https://github.com/rabestro/jmp-backend-core.git</connection>
 		<developerConnection>scm:git:https://github.com/rabestro/jmp-backend-core.git</developerConnection>
 		<url>https://github.com/rabestro/jmp-backend-core</url>
+		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
@@ -84,11 +85,11 @@
 
 	<distributionManagement>
 		<site>
-			<id>github</id>
+			<id>site</id>
 			<url>scm:git:git@github.com:rabestro/jmp-backend-core.git</url>
 		</site>
 		<repository>
-			<id>github</id>
+			<id>repository</id>
 			<name>GitHub Packages</name>
 			<url>https://maven.pkg.github.com/rabestro/jmp-backend-core</url>
 		</repository>
@@ -190,6 +191,21 @@
 					</configuration>
 				</plugin>
 
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-scm-publish-plugin</artifactId>
+					<version>3.2.1</version>
+					<configuration>
+						<scmBranch>gh-pages</scmBranch>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>3.4.5</version>
+				</plugin>
+
 				<!-- SonarQube (Scanner for Maven) -->
 				<plugin>
 					<groupId>org.sonarsource.scanner.maven</groupId>
@@ -267,6 +283,9 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-scm-publish-plugin</artifactId>
 			</plugin>
 
 			<plugin>
