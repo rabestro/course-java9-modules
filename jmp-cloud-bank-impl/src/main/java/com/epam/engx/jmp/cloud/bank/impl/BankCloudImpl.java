@@ -1,6 +1,6 @@
 package com.epam.engx.jmp.cloud.bank.impl;
 
-import com.epam.engx.jmp.bankapi.Bank;
+import com.epam.engx.jmp.api.Bank;
 import com.epam.engx.jmp.dto.BankCard;
 import com.epam.engx.jmp.dto.BankCardType;
 import com.epam.engx.jmp.dto.CreditBankCard;

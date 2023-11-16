@@ -1,4 +1,4 @@
-package com.epam.engx.jmp.bankapi;
+package com.epam.engx.jmp.api;
 
 import com.epam.engx.jmp.dto.BankCard;
 import com.epam.engx.jmp.dto.BankCardType;
