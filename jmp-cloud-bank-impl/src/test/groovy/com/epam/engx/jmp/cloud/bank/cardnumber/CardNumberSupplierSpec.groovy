@@ -1,13 +1,13 @@
-package com.epam.engx.jmp.cloud.bank.impl
+package com.epam.engx.jmp.cloud.bank.cardnumber
 
 
 import spock.lang.Specification
 
-class LuhnCardNumberSupplierSpec extends Specification {
+class CardNumberSupplierSpec extends Specification {
 
 	def "Generated card number should not be null"() {
 		given:
-		def cardNumberSupplier = new LuhnCardNumberSupplier()
+		def cardNumberSupplier = new CardNumberSupplier()
 
 		when:
 		def cardNumber = cardNumberSupplier.get()
@@ -18,7 +18,7 @@ class LuhnCardNumberSupplierSpec extends Specification {
 
 	def "Generated card number should have correct length"() {
 		given:
-		def cardNumberSupplier = new LuhnCardNumberSupplier()
+		def cardNumberSupplier = new CardNumberSupplier()
 
 		when:
 		def cardNumber = cardNumberSupplier.get()
@@ -29,8 +29,8 @@ class LuhnCardNumberSupplierSpec extends Specification {
 
 	def "Generated card number should pass Luhn algorithm check"() {
 		given:
-		def cardNumberSupplier = new LuhnCardNumberSupplier()
-		def luhnCheck = new CardNumberValidator()
+		def cardNumberSupplier = new CardNumberSupplier()
+		def luhnCheck = new LuhnValidator()
 
 		when:
 		def cardNumber = cardNumberSupplier.get()
@@ -41,7 +41,7 @@ class LuhnCardNumberSupplierSpec extends Specification {
 
 	def "Test calculateLuhnCheckDigit with card number #cardNumberWithoutCheckDigit and check digit #expectedCheckDigit"() {
 		given:
-		def luhnCardNumberSupplier = new LuhnCardNumberSupplier()
+		def luhnCardNumberSupplier = new CardNumberSupplier()
 
 		when:
 		def checkDigit = luhnCardNumberSupplier.calculateLuhnCheckDigit(cardNumberWithoutCheckDigit)

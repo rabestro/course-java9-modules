@@ -1,6 +1,7 @@
-package com.epam.engx.jmp.cloud.bank.impl;
+package com.epam.engx.jmp.cloud.bank.cardnumber;
 
 import java.util.function.Predicate;
+import java.util.regex.Pattern;
 
 /**
  * A class that provides Card Number validation functionality.
@@ -10,7 +11,8 @@ import java.util.function.Predicate;
  * The card number should not be null, consist of only digits (0-9), and follow the Luhn algorithm for validation.
  * </p>
  */
-public final class CardNumberValidator implements Predicate<String> {
+public final class LuhnValidator implements Predicate<String> {
+	private static final Predicate<String> CARD_NUMBER_VALIDATOR = Pattern.compile("\\d{2,19}").asPredicate();
 
 	@Override
 	public boolean test(String cardNumber) {
@@ -18,7 +20,7 @@ public final class CardNumberValidator implements Predicate<String> {
 			return false;
 		}
 		var number = cardNumber.replace(" ", "");
-		if (!number.matches("\\d{2,19}")) {
+		if (!CARD_NUMBER_VALIDATOR.test(number)) {
 			return false;
 		}
 

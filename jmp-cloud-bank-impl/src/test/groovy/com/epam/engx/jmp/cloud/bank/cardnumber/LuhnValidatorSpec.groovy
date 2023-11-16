@@ -1,12 +1,13 @@
-package com.epam.engx.jmp.cloud.bank.impl
+package com.epam.engx.jmp.cloud.bank.cardnumber
+
 
 import spock.lang.Specification
 
-class CardNumberValidatorSpec extends Specification {
+class LuhnValidatorSpec extends Specification {
 
 	def "Test with a known valid card number: #cardNumber"() {
 		given:
-		def luhnCheck = new CardNumberValidator()
+		def luhnCheck = new LuhnValidator()
 
 		when:
 		def isValid = luhnCheck.test(cardNumber)
@@ -26,7 +27,7 @@ class CardNumberValidatorSpec extends Specification {
 
 	def "Test with a known invalid card number: #cardNumber"() {
 		given:
-		def luhnCheck = new CardNumberValidator()
+		def luhnCheck = new LuhnValidator()
 
 		when:
 		def isValid = luhnCheck.test(cardNumber)
@@ -46,7 +47,7 @@ class CardNumberValidatorSpec extends Specification {
 
 	def "Test with a null card number"() {
 		given:
-		def luhnCheck = new CardNumberValidator()
+		def luhnCheck = new LuhnValidator()
 
 		when:
 		def isValid = luhnCheck.test(null)
@@ -57,7 +58,7 @@ class CardNumberValidatorSpec extends Specification {
 
 	def "Test with an empty card number"() {
 		given:
-		def luhnCheck = new CardNumberValidator()
+		def luhnCheck = new LuhnValidator()
 
 		when:
 		def isValid = luhnCheck.test("")
@@ -68,7 +69,7 @@ class CardNumberValidatorSpec extends Specification {
 
 	def "Test with a card number containing non-numeric characters"() {
 		given:
-		def luhnCheck = new CardNumberValidator()
+		def luhnCheck = new LuhnValidator()
 
 		when:
 		def isValid = luhnCheck.test("4532a15112830366")

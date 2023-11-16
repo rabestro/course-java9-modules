@@ -1,4 +1,4 @@
-package com.epam.engx.jmp.cloud.bank.impl
+package com.epam.engx.jmp.cloud.bank
 
 
 import com.epam.engx.jmp.dto.BankCardType
@@ -10,10 +10,10 @@ import spock.lang.Subject
 
 import java.time.LocalDate
 
-class BankCloudImplSpec extends Specification {
+class BankImplSpec extends Specification {
 
 	@Subject
-	BankCloudImpl bankCloud = new BankCloudImpl()
+	BankImpl bankCloud = new BankImpl()
 
 	def "Test creating a credit bank card for a valid user"() {
 		given:
