@@ -1,4 +1,4 @@
-package com.epam.engx.jmp.bankapi;
+package com.epam.engx.jmp.api;
 
 import java.util.List;
 import java.util.Optional;

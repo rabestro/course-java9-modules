@@ -30,7 +30,7 @@ class LuhnCardNumberSupplierSpec extends Specification {
 	def "Generated card number should pass Luhn algorithm check"() {
 		given:
 		def cardNumberSupplier = new LuhnCardNumberSupplier()
-		def luhnCheck = new LuhnAlgorithmCheck()
+		def luhnCheck = new CardNumberValidator()
 
 		when:
 		def cardNumber = cardNumberSupplier.get()
