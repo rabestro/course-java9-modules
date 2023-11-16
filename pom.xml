@@ -307,6 +307,9 @@
 
 		<plugins>
 			<plugin>
+				<artifactId>maven-enforcer-plugin</artifactId>
+			</plugin>
+			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
 			<plugin>
