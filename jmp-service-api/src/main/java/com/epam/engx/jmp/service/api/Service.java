@@ -1,4 +1,4 @@
-package com.epam.engx.service.api;
+package com.epam.engx.jmp.service.api;
 
 import java.util.List;
 import java.util.Optional;
