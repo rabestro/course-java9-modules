@@ -11,7 +11,7 @@
 		<relativePath/>
 	</parent>
 
-	<groupId>org.epam.engx</groupId>
+	<groupId>com.epam</groupId>
 	<artifactId>jmp</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
@@ -72,6 +72,7 @@
 		<module>jmp-cloud-bank-impl</module>
 		<module>jmp-cloud-service-impl</module>
 		<module>jmp-dto</module>
+		<module>jmp-application</module>
 	</modules>
 
 	<scm>
@@ -112,7 +113,6 @@
 		<sonar.java.source>${java.version}</sonar.java.source>
 		<sonar.organization>rabestro</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<sonar.issues.defaultAssigneeLogin>rabestro</sonar.issues.defaultAssigneeLogin>
 	</properties>
 
 	<dependencyManagement>
@@ -170,6 +170,11 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-dependency-plugin</artifactId>
 					<version>3.6.1</version>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>3.3.2</version>
 				</plugin>
 
 				<!-- Maven Compiler Plugin -->
@@ -297,6 +302,9 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

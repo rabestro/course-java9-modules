@@ -47,4 +47,5 @@ jobs:
         run: mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
           --batch-mode
           --define sonar.host.url=https://sonarcloud.io
-          --define sonar.projectKey=org.epam.engx:jmp
+          --define sonar.projectKey=com.epam:jmp
+          --define sonar.issues.defaultAssigneeLogin=rabestro
