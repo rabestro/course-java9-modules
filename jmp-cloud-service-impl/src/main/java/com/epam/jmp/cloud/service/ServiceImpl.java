@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 public class ServiceImpl implements Service {
 	private final List<Subscription> subscriptions = new ArrayList<>();
@@ -33,5 +34,10 @@ public class ServiceImpl implements Service {
 			.map(BankCard::user)
 			.distinct()
 			.toList();
+	}
+
+	@Override
+	public List<Subscription> getAllSubscriptionsByCondition(Predicate<? super Subscription> filter) {
+		return subscriptions.stream().filter(filter).toList();
 	}
 }

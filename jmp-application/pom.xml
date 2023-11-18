@@ -12,15 +12,53 @@
 	<artifactId>jmp-application</artifactId>
 
 	<dependencies>
+		<!-- API dependencies -->
+		<dependency>
+			<groupId>com.epam</groupId>
+			<artifactId>jmp-dto</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- API dependencies -->
 		<dependency>
 			<groupId>com.epam</groupId>
 			<artifactId>jmp-bank-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.epam</groupId>
+			<artifactId>jmp-service-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 
+		<!-- Implementation dependencies -->
+		<dependency>
+			<groupId>com.epam</groupId>
+			<artifactId>jmp-cloud-bank-impl</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.epam</groupId>
+			<artifactId>jmp-cloud-service-impl</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- Spring dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
 		</dependency>
 	</dependencies>
 
