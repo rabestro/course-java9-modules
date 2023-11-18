@@ -11,23 +11,13 @@
 	</parent>
 
 	<artifactId>jmp-bank-api</artifactId>
-	<packaging>jar</packaging>
 
     <dependencies>
         <dependency>
 			<groupId>com.epam</groupId>
             <artifactId>jmp-dto</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>
