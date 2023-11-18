@@ -51,7 +51,7 @@ class BankImplSpec extends Specification {
 
 		then:
 		def exception = thrown NullPointerException
-		exception.message == "User cannot be null"
+		exception.message == "BankUser cannot be null"
 	}
 
 	def "Test creating a bank card with a null bank card type"() {

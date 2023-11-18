@@ -1,7 +1,6 @@
 open module jmp.dto {
 	exports com.epam.jmp.dto;
 
-	requires lombok;
 	requires java.desktop;
     requires jakarta.persistence;
 	requires jakarta.validation;

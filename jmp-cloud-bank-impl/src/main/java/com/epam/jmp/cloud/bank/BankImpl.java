@@ -14,7 +14,7 @@ public final class BankImpl implements Bank {
 
 	@Override
 	public BankCard createBankCard(User user, BankCardType type) {
-		Objects.requireNonNull(user, "User cannot be null");
+		Objects.requireNonNull(user, "BankUser cannot be null");
 		Objects.requireNonNull(type, "Bank card type cannot be null");
 
 		var cardNumberSupplier = new CardNumberSupplier();

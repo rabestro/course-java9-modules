@@ -1,25 +1,23 @@
 package com.epam.jmp.repository;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.time.LocalDate;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.test.context.jdbc.Sql;
 
-import com.epam.jmp.entity.User;
+import java.time.LocalDate;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
-class UserRepositoryTest {
+class BankUserRepositoryTest {
 	@Autowired
 	UserRepository userRepository;
-	@Autowired
-	private TestEntityManager entityManager;
 
 	@BeforeEach
 	void setUp() {
@@ -29,23 +27,19 @@ class UserRepositoryTest {
 	void tearDown() {
 	}
 
-	@Test
 	@DisplayName("Find user by existing name")
-	void findByName_existingName_returnsUser() {
-		var user = new User();
-		user.setName("John");
-		user.setSurname("Doe");
-		user.setBirthday(LocalDate.of(1990, 1, 1));
-		entityManager.persist(user);
-		entityManager.flush();
-
-		var foundUser = userRepository.findByName("John");
+	@ParameterizedTest
+	@Sql("/users.sql")
+	@CsvFileSource(resources = "/users.csv", numLinesToSkip = 1)
+	void findByName_existingName_returnsUser(String name, String surname, LocalDate birthday) {
+		var foundUser = userRepository
+			.findByName(name);
 
 		assertThat(foundUser)
-			.isNotNull();
-
-		assertThat(foundUser.get().getName())
-			.isEqualTo("John");
+			.isPresent().get()
+			.hasFieldOrPropertyWithValue("name", name)
+			.hasFieldOrPropertyWithValue("surname", surname)
+			.hasFieldOrPropertyWithValue("birthday", birthday);
 	}
 
 	@Test
@@ -63,5 +57,4 @@ class UserRepositoryTest {
 
 		assertThat(user).isEmpty();
 	}
-
 }
