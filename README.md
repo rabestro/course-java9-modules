@@ -1,4 +1,4 @@
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=org.epam.engx:jmp&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=org.epam.engx:jmp)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.epam:jmp&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=com.epam:jmp)
 
 # Java Mentoring Program
 
