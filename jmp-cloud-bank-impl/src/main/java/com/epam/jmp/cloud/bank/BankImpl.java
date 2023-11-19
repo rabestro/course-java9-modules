@@ -1,5 +1,6 @@
 package com.epam.jmp.cloud.bank;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -14,7 +15,7 @@ import com.epam.jmp.dto.User;
 
 
 public class BankImpl implements Bank {
-	private final Set<BankCard> bankCards = new HashSet<>();
+	private final Set<BankCard> bankCards = Collections.synchronizedSet(new HashSet<>());
 
 	@Override
 	public BankCard createBankCard(User user, BankCardType type) {

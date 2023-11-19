@@ -2,6 +2,7 @@ package com.epam.jmp.application.controller;
 
 import com.epam.jmp.api.Bank;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,9 +19,9 @@ public class Controller {
 
 	@PostMapping(value = "/createCard")
 	@ResponseBody
-	public String createBankCard(@RequestBody BankCardRequest request) {
+	public ResponseEntity<?> createBankCard(@RequestBody BankCardRequest request) {
 		var card = bank.createBankCard(request.user(), request.type());
-		return card.number();
+		return ResponseEntity.ok(card.number());
 	}
 
 	@GetMapping(value = "/createCard")
