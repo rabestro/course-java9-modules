@@ -1,4 +1,4 @@
-package com.epam.jmp.application.controller;
+package com.epam.jmp.application.dto.request;
 
 import com.epam.jmp.dto.BankCardType;
 import com.epam.jmp.dto.User;

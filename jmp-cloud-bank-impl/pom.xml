@@ -17,5 +17,20 @@
 			<artifactId>jmp-bank-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.epam</groupId>
+			<artifactId>jmp-dto</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- Test dependencies -->
+		<dependency>
+			<groupId>org.spockframework</groupId>
+			<artifactId>spock-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.groovy</groupId>
+			<artifactId>groovy</artifactId>
+		</dependency>
 	</dependencies>
 </project>

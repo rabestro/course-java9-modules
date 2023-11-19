@@ -2,6 +2,7 @@ package com.epam.jmp.application.controller;
 
 import java.util.ServiceLoader;
 
+import com.epam.jmp.application.dto.request.BankCardRequest;
 import com.epam.jmp.dto.BankCard;
 
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,9 @@ import com.epam.jmp.api.Bank;
 @RestController
 @RequestMapping("/api")
 public class BankController {
-	private final Bank bank = ServiceLoader.load(Bank.class).findFirst().orElseThrow();
+	private final Bank bank = ServiceLoader.load(Bank.class)
+		.findFirst()
+		.orElseThrow(() -> new IllegalStateException("No implementation of Bank service found."));
 
 	@PostMapping(value = "/card")
 	public ResponseEntity<?> createBankCard(@RequestBody BankCardRequest request) {
