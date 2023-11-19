@@ -16,9 +16,20 @@ Content-Type: application/json
 	"type": "CREDIT"
 }
 
-> {% client.global.set("bankCard", response.body); %}
+> {%
+	client.global.set("bankCard", response.body);
+%}
+
+### Get a user by bank card number
+GET {{host}}/api/card/{{bankCard}}
 
 ### Subscribe to the service
-POST {{host}}/api/user/subscribe
+POST {{host}}/api/user/subscription
+Content-Type: application/json
 
-{{bankCard}}
+{
+"cardNumber": "{{bankCard}}"
+}
+
+### Get a subscription by card number
+GET {{host}}/api/user/subscription/{{bankCard}}

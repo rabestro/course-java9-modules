@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Stream;
 
 import com.epam.jmp.api.Bank;
 import com.epam.jmp.dto.BankCard;
@@ -34,5 +35,10 @@ public class BankImpl implements Bank {
 		return bankCards.stream()
 			.filter(card -> card.number().equals(cardNumber))
 			.findFirst();
+	}
+
+	@Override
+	public Stream<BankCard> getAllBankCards() {
+		return bankCards.stream();
 	}
 }

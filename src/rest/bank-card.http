@@ -36,3 +36,6 @@ GET {{host}}/api/card/{{bankCard}}
 
 ### Trying to find a user by unexistant bank card number
 GET {{host}}/api/card/{{$random.uuid}}
+
+### Get all bank cards
+GET {{host}}/api/card
