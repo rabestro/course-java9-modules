@@ -73,6 +73,7 @@
 		<module>jmp-cloud-service-impl</module>
 		<module>jmp-dto</module>
 		<module>jmp-application</module>
+		<module>test-app</module>
 	</modules>
 
 	<scm>

@@ -1,0 +1,25 @@
+### Create a Debit Bank Card
+POST {{host}}/api/createCard
+Content-Type: application/json
+
+{
+    "user": {
+        "name": "Marsha",
+        "surname": "Preyscott",
+        "birthDate": "1989-11-09"
+    },
+    "type": "DEBIT"
+}
+
+### Create a Credit Bank Card
+POST {{host}}/api/createCard
+Content-Type: application/json
+
+{
+	"user": {
+		"name": "Albert",
+		"surname": "Wells",
+		"birthDate": "1954-07-28"
+	},
+	"type": "CREDIT"
+}

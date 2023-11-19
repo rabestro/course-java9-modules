@@ -1,10 +1,10 @@
-package com.epam.jmp.app.controller;
+package com.epam.jmp.application.controller;
 
 import com.epam.jmp.api.Bank;
-import com.epam.jmp.dto.BankCardType;
-import com.epam.jmp.dto.User;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,10 +18,14 @@ public class Controller {
 
 	@PostMapping(value = "/createCard")
 	@ResponseBody
-	public void createBankCard(User user, BankCardType type) {
-		bank.createBankCard(user, type);
+	public String createBankCard(@RequestBody BankCardRequest request) {
+		var card = bank.createBankCard(request.user(), request.type());
+		return card.number();
 	}
-}
 
-record BankCardRequest(User user, BankCardType type) {
+	@GetMapping(value = "/createCard")
+	@ResponseBody
+	public String createBankCard() {
+		return "Hello World!";
+	}
 }
