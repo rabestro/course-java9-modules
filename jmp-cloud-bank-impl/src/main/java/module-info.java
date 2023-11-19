@@ -6,4 +6,7 @@ module jmp.cloud.bank.impl {
 	requires jmp.dto;
 	provides Bank
 		with BankImpl;
+
+	// Required for tests
+	requires java.desktop;
 }

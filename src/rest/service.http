@@ -3,7 +3,22 @@
 ### list of all users who use the service
 GET {{host}}/api/user
 
+### Create a Credit Bank Card
+POST {{host}}/api/card
+Content-Type: application/json
+
+{
+	"user": {
+		"name": "Albert",
+		"surname": "Wells",
+		"birthDate": "1954-07-28"
+	},
+	"type": "CREDIT"
+}
+
+> {% client.global.set("bankCard", response.body); %}
+
 ### Subscribe to the service
 POST {{host}}/api/user/subscribe
 
-"7436e700-5e99-4eec-ab45-bf4926e15f96"
+{{bankCard}}
