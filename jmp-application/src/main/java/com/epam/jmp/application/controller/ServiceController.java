@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.epam.jmp.api.Bank;
+import com.epam.jmp.application.dto.request.BankCardRequest;
+import com.epam.jmp.application.dto.request.SubscriptionRequest;
+import com.epam.jmp.application.dto.response.BankCardDetails;
+import com.epam.jmp.application.dto.response.SubscriptionDetails;
 import com.epam.jmp.application.exception.NoSuchSubscription;
-import com.epam.jmp.dto.Subscription;
 import com.epam.jmp.dto.User;
 import com.epam.jmp.service.api.Service;
 
@@ -36,19 +39,39 @@ public class ServiceController {
 		return service.getAverageUserAge();
 	}
 
-	@PostMapping("/user/subscribe")
-	public void subscribe(@RequestBody String cardNumber) {
-		bank.findBankCardByNumber(cardNumber)
+	@PostMapping("/user/subscription")
+	public void subscribe(@RequestBody SubscriptionRequest request) {
+		bank.findBankCardByNumber(request.cardNumber())
 			.ifPresentOrElse(service::subscribe, () -> {
-				throw new NoSuchElementException("Bank card %s not found".formatted(cardNumber));
+				throw new NoSuchElementException(
+					"Bank card %s not found".formatted(request.cardNumber()));
 			});
 	}
 
 	@GetMapping("/user/subscription/{cardNumber}")
-	public ResponseEntity<Subscription> getSubscriptionsByBankCardNumber(@PathVariable String cardNumber) {
+	public ResponseEntity<SubscriptionDetails> getSubscriptionsByBankCardNumber(@PathVariable String cardNumber) {
 		return service.getSubscriptionByBankCardNumber(cardNumber)
+			.map(SubscriptionDetails::new)
 			.map(ResponseEntity::ok)
 			.orElseThrow(NoSuchSubscription::new);
 	}
 
+	@PostMapping(value = "/card")
+	public ResponseEntity<?> createBankCard(@RequestBody BankCardRequest request) {
+		var card = bank.createBankCard(request.user(), request.type());
+		return ResponseEntity.ok(card.number());
+	}
+
+	@GetMapping(value = "/card/{cardNumber}")
+	public ResponseEntity<BankCardDetails> getBankCardByNumber(@PathVariable String cardNumber) {
+		return bank.findBankCardByNumber(cardNumber)
+			.map(BankCardDetails::new)
+			.map(ResponseEntity::ok)
+			.orElse(ResponseEntity.notFound().build());
+	}
+
+	@GetMapping(value = "/card")
+	public List<BankCardDetails> getAllBankCards() {
+		return bank.getAllBankCards().map(BankCardDetails::new).toList();
+	}
 }

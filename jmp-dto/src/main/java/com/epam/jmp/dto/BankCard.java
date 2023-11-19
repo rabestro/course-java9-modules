@@ -24,18 +24,18 @@ public sealed class BankCard permits CreditBankCard, DebitBankCard {
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) {
-			return true;
-		}
+            return true;
+        }
 		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
+            return false;
+        }
 		BankCard bankCard = (BankCard) o;
-		return Objects.equals(number, bankCard.number) && Objects.equals(user, bankCard.user);
+		return Objects.equals(number, bankCard.number);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(number, user);
+		return Objects.hash(number);
 	}
 
 	@Override

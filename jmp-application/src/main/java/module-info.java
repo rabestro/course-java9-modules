@@ -24,5 +24,7 @@ module jmp.application {
 	exports com.epam.jmp.application;
     exports com.epam.jmp.application.controller;
     exports com.epam.jmp.application.dto.request;
+	exports com.epam.jmp.application.dto.response;
+
     opens com.epam.jmp.application.dto.request;
 }
