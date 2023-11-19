@@ -1,0 +1,9 @@
+# Service API
+
+### list of all users who use the service
+GET {{host}}/api/user
+
+### Subscribe to the service
+POST {{host}}/api/user/subscribe
+
+"7436e700-5e99-4eec-ab45-bf4926e15f96"
