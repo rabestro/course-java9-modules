@@ -15,9 +15,12 @@ module jmp.application {
 	requires jmp.cloud.bank.impl;
 	requires jmp.cloud.service.impl;
 
-    uses com.epam.jmp.api.Bank;
+	uses com.epam.jmp.api.Bank;
 	uses com.epam.jmp.service.api.Service;
 
 	opens com.epam.jmp.application;
 	opens com.epam.jmp.application.controller;
+
+	exports com.epam.jmp.application;
+    exports com.epam.jmp.application.controller;
 }
