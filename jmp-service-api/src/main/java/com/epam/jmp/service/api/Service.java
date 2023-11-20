@@ -10,12 +10,10 @@ import com.epam.jmp.dto.Subscription;
 import com.epam.jmp.dto.User;
 
 public interface Service {
-	int MATURITY_AGE = 18;
+	LegalAgePredicate USER_PAYABLE_PREDICATE = new LegalAgePredicate();
 
 	static boolean isPayableUser(User user) {
-		return user.birthday()
-			.plusYears(MATURITY_AGE)
-			.isBefore(LocalDate.now());
+		return USER_PAYABLE_PREDICATE.test(user);
 	}
 
 	void subscribe(BankCard bankCard);
